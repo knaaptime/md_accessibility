@@ -1,14 +1,19 @@
-# Maryland Employment & Labor Accessibility
+# Employment & Labor Accessibility in Maryland
 
 This repository contains three python scripts for computing walk and bike access
  to jobs and labor in the state of Maryland.
 
- The scripts will calculate three measures of accessibility using
- flat, linear, and exponential decay functions, the results of which will look something like this:
+ The scripts will calculate accessibility in 15, 30, and 45 minute intervals using
+ flat, linear, and exponential decay functions. The 'flat' decay simply sums
+  all the accessible jobs/households without applying any weighting. Linear decay will discount
+  destinations that are further away, and exponential decay
+  will discount destinations at an increasing rate.
+
+ The results will look something like this:
 
  <img src="walk_access.png" alt="Walk Accessibility" />
 
-*note*: an interactive version can be found [here](http://knaaptime.com/maps/mdot/index.html)
+**note**: an interactive version can be found on my [website](http://knaaptime.com/maps/mdot/index.html)
 
 
  Accessibility is computed using the
@@ -21,12 +26,12 @@ To run the scripts, first download the [data](https://www.dropbox.com/s/y2zg1o5m
  unzip it, and place the "input" directory in the root of this folder. The input
  directory contains a shapefile with LEHD data that has been slightly modified to
  account for some known issues, and a walk/bike network extract from OpenStreetMap (thanks to
-   Fletcher Foti for helping to create the network). Then, open a terminal, cd into this folder, and run
-    each script using, e.g.:
+   [Fletcher Foti](http://fletcherfoti.com/) for helping to create the network).
+   Then, open a terminal, cd into this folder, and run each script using, e.g.:
     `python access_exponential.py`
 
 
-*note*: There is also a script called "build_osm.py" that could build a network from
+**note**: There is also a script called "build_osm.py" that could build a network from
 scratch using pandana's OSM loader, although currently there are [some problems](https://github.com/synthicity/pandana/issues/41)
  because of the network's size. For now, it's probably best to use the data provided above.  
 
